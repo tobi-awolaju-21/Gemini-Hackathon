@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SurveillanceTree</title>
+
+
+  <style>
+  body {
+  margin: 0;
+  padding: 0;
+}
+
+    /* Common styles for both mobile and desktop */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: rgb(255, 255, 255);
+      overflow-y: hidden;
+    }
+
+    .up-left,
+    .down-right {
+      width: 100%;
+      text-align: center;
+      position: relative; /* Ensure the parent container is positioned */
+    }
+
+
+    /* Mobile styles */
+    @media (max-width: 767px) {
+
+      .up-left,
+      .down-right {
+        order: 1;
+        /* Change the order for mobile */
+        max-height:50%;
+      }
+    }
+
+    /* Desktop styles */
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+
+      .up-left {
+        order: 1;
+        /* Keep up-left on the left */
+        max-height: 100%;
+      }
+
+      .down-right {
+        order: 2;
+        /* Keep down-right on the right */
+        max-height: 100%;
+        
+      }
+    }
+  </style>
+
+<!--Lower part styles-->
+<style>
+
+
+.promptBox{
+  display: flex;
+  position: absolute; /* Position the input element absolutely */
+  bottom: 20px; /* Align the input element to the bottom of its parent */
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+button{
+  border-radius: 50px; /* Adjust the value to change the roundness */
+background-color: #30a134;
+margin-left: 8px;
+color:#ffffff;
+outline: none;
+border: 1px solid #cecece;
+width: 50px;
+height: 50px;
+font-size: x-large;
+box-shadow: 6px 8px rgba(0, 50, 0,1); /* Add shadow */
+}
+
+.myinput[type="text"] {
+ border-radius: 20px; /* Adjust the value to change the roundness */
+  padding: 10px;
+  border: 1px solid #cecece;
+  outline: none;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #1f1f1f;
+  width:250px;
+  margin-top:0px;
+}
+
+input[type="text"]::placeholder {
+  color: #9b9b9b; /* Adjust placeholder color */
+}
+
+
+
+</style>
+
+<!--Seekbar's style-->
+<style>
+  .seek-bar {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.slider {
+  
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: #ffffff;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+
+}
+
+/* For mobile mode */
+@media screen and (max-width: 767px) {
+  .slider {
+    transform: translate(0, 100vw);
+  }
+}
+
+/* For desktop mode */
+@media screen and (min-width: 768px) {
+  .slider {
+    transform: translate(0, 95vh);
+  }
+}
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #30a134;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+</style>
+<!-- terminal style -->
+<style>
+  .terminal {
+    padding: 8px;
+    color: #000000;
+    height: 100vw;
+  }
+</style>
+
+<style>
+  h1{
+    color:#949494;
+    padding: 0px;
+    margin: 0px;
+  }
+  h2{
+    color:#949494;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.min.js"
+    integrity="sha512-0zGLOFv/+OQ6YfVCSGDQWhrDRx0ONmBqWvs3gI4olm8i6xtKoG1FhEnB4eTaWCVnojyfUDgE8Izeln+mAJAkFA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="up-left">
+      <div class="seek-bar">
+        <input type="range" min="0" max="100" value="100" class="slider" id="myRange">
+      </div>
+    </div>
+
+
+
+    <div class="down-right">
+      <div class = "promptBox">
+        <input  class= "myinput" type="text" placeholder="Type your prompt here">
+        <button>▶</button>
+      </div> 
+
+      <Div style="display: flex; padding: 8px;">
+        <h1>Google</h1>
+        <h2>Tree</h2>
+      </Div>
+
+      <div class="terminal">
+        ything   this is a log of everything
+          this is a log of everything
+          this is a log of everything   this is a log of everything
+          this is a log of everything
+          this is a log of everything
+      </div>
+
+  
+    </div>
+
+  </div>
+
+  <script>
+    let img;
+
+    function preload() {
+      img = loadImage('image2.jpg'); // Replace 'your_image.jpg' with the path to your image
+    }
+
+    function setup() {
+
+      var Mywidth = window.innerWidth;
+      var MyHeight = window.innerHeight;
+      if (Mywidth > MyHeight) {
+        var Mywidth = window.innerHeight;
+        var MyHeight = window.innerHeight;
+        console.log('running A');
+      } else {
+        var Mywidth = window.innerWidth;
+        var MyHeight = window.innerWidth;
+        console.log('running B');
+      }
+
+
+      let canvas = createCanvas(Mywidth, MyHeight); // Adjust width and height as needed
+      canvas.parent('up-left'); // Assign the parent element by ID
+      background(255);
+      drawImage();
+      drawGrid();
+    }
+
+    function drawImage() {
+      image(img, 0, 0, width, height); // Stretch the image to fit the canvas
+      filter(GRAY); // Convert the image to black and white
+    }
+
+    function drawGrid() {
+      let cellWidth = width / 4;
+      let cellHeight = height / 4;
+      let counter = 1;
+
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+          let x = j * cellWidth;
+          let y = i * cellHeight;
+
+          // Draw green grid
+          fill(0,0,0,0); // Green with some transparency
+          stroke(250); // No border for the rectangles
+          rect(x, y, cellWidth, cellHeight);
+
+          // Draw number in the center of each box
+          fill(255);
+          stroke(0,200,0)
+          textAlign(CENTER, CENTER);
+          textSize(20);
+          text(counter, x + cellWidth / 2, y + cellHeight / 2);
+
+          counter++;
+        }
+      }
+    }
+  </script>
+
+  <script>
+      // Function to reload the page
+      function reloadPage() {
+      location.reload();
+    }
+
+    // Listen for the resize event
+    window.addEventListener('resize', function() {
+      // Throttle the event to avoid excessive refreshes
+      clearTimeout(window.resizedFinished);
+      window.resizedFinished = setTimeout(reloadPage, 100);
+    });
+  </script>
+</body>
+
+</html>
