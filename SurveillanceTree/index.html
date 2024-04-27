@@ -289,17 +289,9 @@ input[type="text"]::placeholder {
   </script>
 
   <script>
-      // Function to reload the page
-      function reloadPage() {
-      location.reload();
-    }
-
-    // Listen for the resize event
-    window.addEventListener('resize', function() {
-      // Throttle the event to avoid excessive refreshes
-      clearTimeout(window.resizedFinished);
-      window.resizedFinished = setTimeout(reloadPage, 100);
-    });
+     window.onload = function() {
+  scrollToLastItem();
+};
   </script>
 </body>
 
