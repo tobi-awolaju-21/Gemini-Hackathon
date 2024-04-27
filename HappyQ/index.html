@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>googol Queue</title>
+
+
+  <style>
+  body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8p;
+margin-bottom: 50px;
+}
+
+.header{
+  padding: 20px;
+}
+</style>
+
+<!--Lower part styles-->
+<style>
+
+.b1{
+  border-radius: 20px; /* Adjust the value to change the roundness */
+background-color: #28ab65;
+margin-left: 8px;
+color:#ffffff;
+outline: none;
+border: 1px solid #cecece;
+width: 60px;
+height: 60px;
+font-size:xx-large;
+box-shadow: 6px 8px rgb(0, 103, 45); /* Add shadow */
+}
+
+
+.b2{
+  border-radius: 20px; /* Adjust the value to change the roundness */
+background-color: #747474;
+margin-left: 8px;
+color:#ffffff;
+outline: none;
+border: 1px solid #4f4f4f;
+width: 60px;
+height: 60px;
+font-size:xx-large;
+box-shadow: 6px 8px rgb(0, 0, 0); /* Add shadow */
+}
+
+
+.connection {
+        position: absolute;
+        border: 1px dashed grey;
+        pointer-events: none;
+    }
+
+</style>
+
+
+<style>
+  p{
+    color:#949494;
+    padding: 0px;
+    margin: 10px;
+    margin-top: 25px;
+  }
+  h1{
+    font-size: xx-large;
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+  h2{
+    font-weight: lighter;
+  }
+</style>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+   <div class="header">
+    <h1>
+      googol Queue
+    </h1>
+
+    <h2>Making queuing a pleasant experience</2>
+
+   </div>
+
+    <div class="box">
+        <button class ="b1" id="1">▶</button>
+        <p>Good morning</p>
+    </div> 
+
+
+    <div class="box">
+        <button class ="b2" id="2">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    <div class="box">
+        <button class ="b2" id="3">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    <div class="box">
+        <button class ="b2" id="4">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    <div class="box">
+        <button class ="b2" id="5">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    
+    <div class="box">
+        <button class ="b2" id="2">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    <div class="box">
+        <button class ="b2" id="3">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    <div class="box">
+        <button class ="b2" id="4">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    <div class="box">
+        <button class ="b2" id="5">?</button>
+        <p>Upcoming</p>
+    </div> 
+
+    
+  
+<script>
+  // Get all buttons
+  const buttons = document.querySelectorAll('.b2');
+
+  // Random x translation
+  buttons.forEach(button => {
+      const randomX = Math.floor(Math.random() * 91) - 49; // Random value between -25 and 25
+      button.style.transform = `translateX(${randomX}px)`;
+  });
+
+</script>
+  
+  
+
+
+</body>
+
+</html>
