@@ -12,6 +12,7 @@
   margin: 0;
   padding: 0;
   overflow-y: hidden;
+  transform: translateY(-50px); /* Center horizontally */
 }
 
     /* Common styles for both mobile and desktop */
@@ -289,17 +290,6 @@ input[type="text"]::placeholder {
     }
   </script>
 
-  <script>
-
-    
-     window.onload = function() {
- // Find the last item on the page
- const lastItem = document.querySelector("#promptBox");
-
-// Scroll the page to the last item
-lastItem.scrollIntoView({ behavior: "smooth", block: "end" });
-};
-  </script>
 </body>
 
 </html>
