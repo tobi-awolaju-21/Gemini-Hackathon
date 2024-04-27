@@ -11,6 +11,7 @@
   body {
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 
     /* Common styles for both mobile and desktop */
@@ -203,7 +204,7 @@ input[type="text"]::placeholder {
 
 
     <div class="down-right">
-      <div class = "promptBox">
+      <div class = "promptBox" id="promptBox">
         <input  class= "myinput" type="text" placeholder="Type your prompt here">
         <button>▶</button>
       </div> 
@@ -289,8 +290,14 @@ input[type="text"]::placeholder {
   </script>
 
   <script>
+
+    
      window.onload = function() {
-  scrollToLastItem();
+ // Find the last item on the page
+ const lastItem = document.querySelector("#promptBox");
+
+// Scroll the page to the last item
+lastItem.scrollIntoView({ behavior: "smooth", block: "end" });
 };
   </script>
 </body>
